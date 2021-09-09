@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>TAPUKUN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="title">
+    <b>RESPUESTAS</b>
+  </div>
+  <div class="answers">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" no-padding no-margin *ngFor="let answer of answers;">
+          <div *ngIf="answer?.score === 1">
+            <ion-button size="small" color="success" expand="block"><b>{{answer?.studentFullName}}</b></ion-button>
+          </div>
+          <ion-button size="small" color="danger" expand="block"><b>{{answer?.studentFullName}}</b></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-col>
+          <ion-button color="secondary" expand="block" type="submit" (click)="close()">Cerrar</ion-button>
+        </ion-col>
+    </ion-grid>
+  </div>
+</ion-content>

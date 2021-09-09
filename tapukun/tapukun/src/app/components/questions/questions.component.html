@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>TAPUKUN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="title">
+    <b>PREGUNTAS</b>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" no-padding no-margin *ngFor="let question of questions;">
+        <ion-button color="medium"  size="small" expand="block" (click)="go(question.id)">{{question.id}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="cancel">
+    <ion-button color="secondary" expand="block" (click)="close()">Cerrar</ion-button>
+  </div>
+</ion-content>

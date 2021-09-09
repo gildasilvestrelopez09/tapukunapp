@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  public logo = "trivia/src/assets/logo.jpeg"
+  constructor(private router: Router,) {}
 
+  public login(){
+    this.router.navigate(['teacher/login/']);
+  }
+  public goToQuestionary(){
+    this.router.navigate(['quetionaries/welcome/']);
+  }
 }

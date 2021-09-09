@@ -1,0 +1,52 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>TAPUKUN</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<div class="title">
+	<b>BIENVENID@</b>
+</div>
+	<ion-grid>
+	<form [formGroup]="welcomeForm"  >
+
+		<ion-item>
+			<ion-label size="medium" position="floating">Nombre completo</ion-label>
+			<ion-input type="fullName" formControlName="fullName" class="form-control"></ion-input>
+		</ion-item>
+		<ion-label  color="danger" *ngIf="isInvalid('fullName')">
+			<h6 *ngIf="hasErrorControl('fullName', 'required')">Este campo es requerido</h6>
+			<!--<h6 *ngIf="hasErrorControl('fullName', 'pattern')">
+				Ingrese un correo válido
+			</h6>-->
+		</ion-label>
+		<ion-item>
+			<ion-label size="medium" position="floating">Código de acceso</ion-label>
+			<ion-input type="accessCode" formControlName="accessCode" class="form-control"></ion-input>
+		</ion-item><br>
+		<ion-label  color="danger" *ngIf="isInvalid('accessCode')">
+			<h6 *ngIf="hasErrorControl('accessCode', 'required')">
+				Este campo es requerido
+			</h6>
+      <h6 *ngIf="hasErrorControl('accessCode', 'minLength')">
+				Ingrese un código de 4 caracteres
+			</h6>
+      <h6 *ngIf="hasErrorControl('accessCode', 'maxLength')">
+				Ingrese un código de 4 caracteres
+			</h6>
+		</ion-label>
+
+		<ion-grid>
+			<ion-row>
+				<ion-col>
+					<ion-button color="secondary" expand="block" routerLink="/home" >Cancelar</ion-button>
+				</ion-col>
+				<ion-col>
+					<ion-button color="primary" expand="block" type="submit" (click)="goToQuestion()" [disabled]="!welcomeForm.valid">Guardar</ion-button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</form>
+	</ion-grid>
+</ion-content>

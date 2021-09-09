@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>TAPUKUN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-progress-bar value={{progress}}></ion-progress-bar>
+    <div class="timer">
+      <h1>{{time}}</h1>
+    </div>
+    <div class="radio">
+      <ion-radio-group (ionChange)="getAnswer($event)">
+        <ion-list-header>
+          <b>{{question?.question}}</b>
+        </ion-list-header>
+        <div *ngFor="let option of options">
+          <ion-item>
+            <ion-label>{{option}}</ion-label>
+            <ion-radio slot="start" value={{option}}></ion-radio>
+          </ion-item>
+        </div>
+      </ion-radio-group>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="secondary" expand="block" (click)="close()">Cancelar</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" expand="block" type="submit" (click)="save()">Guardar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+</ion-content>
